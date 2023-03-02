@@ -25,11 +25,11 @@ export function AsteroidList() {
       initialized = true
       dispatch(fetchAsteroids())
     }
-  }, [])
+  }, [dispatch])
 
   useEffect( () => {
     dispatch(saveFavouriteData())
-  }, [favourites])
+  }, [favourites, dispatch])
 
   return (<Layout className="container mt-5">
     <h1>Asteroid List</h1>

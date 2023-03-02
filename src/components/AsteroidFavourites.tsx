@@ -15,7 +15,7 @@ export function AsteroidFavourites() {
 
   useEffect(() => {
     dispatch(saveFavouriteData())
-  }, [favourites])
+  }, [favourites, dispatch])
 
   return (<Layout className="container mt-5">
     <h1>Asteroid Favourites</h1>

@@ -42,7 +42,7 @@ const initFavourites = () => {
 export const asteroidSlice = createSlice({
   name: 'asteroids',
   initialState: {
-    is_loading: false,
+    is_loading: true,
     asteroids: [] as any[],
     sort: "ASC" as "ASC"|"DESC",
     search: "",
@@ -86,8 +86,6 @@ export const asteroidSlice = createSlice({
     builder.addCase(fetchAsteroids.fulfilled, (state, { payload }) => { state.asteroids = payload; state.is_loading = false })
     builder.addCase(fetchAsteroids.pending, (state) => {state.is_loading = true})
     builder.addCase(fetchAsteroids.rejected, (state) => {state.is_loading = false; state.error = "Error calling APIs"})
-    builder.addCase(saveFavouriteData.fulfilled, (state) => { state.is_loading = false })
-    builder.addCase(saveFavouriteData.pending, (state) => {state.is_loading = true})
     builder.addCase(saveFavouriteData.rejected, (state) => {state.error = "Error saving favourites"})
   }
 })
